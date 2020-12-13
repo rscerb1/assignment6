@@ -5,15 +5,21 @@ public class Client {
 
         DinnerOrder dinnerOrder = new DinnerOrder();
         Order order = new Order();
-        Scanner scanner = new Scanner(System.in);
-        String selection;
-        boolean loop = true;
-        Menu menu = Menu.getInstance(); // get instance of singleton class menu
+
+        Scanner scanner = new Scanner(System.in); // make a scanner to read user selection
+        String selection; // string to store user selection
+        boolean loop = true; // bool to control loop
 
         while(loop) {
-            menu1();
+            System.out.println("""
+                To select an option, enter the number to the left of the option.
+                0) Exit Program
+                1) Display Menu
+                2) Add Entrees to Order
+                3) Submit Order
+                4) Display Tab
+                """);
             selection = scanner.nextLine();
-
             switch (selection) {
                 case "0": // set loop boolean to false to escape method
                     loop = false;
@@ -47,20 +53,9 @@ public class Client {
                     break;
                 default:
                     System.out.println("You entered an incorrect option, try again.");
-
             }
         }
     }
 
-    static void menu1(){
-        System.out.println("""
-                To select an option, enter the number to the left of the option.
-                0) Exit Program
-                1) Display Menu
-                2) Add Entrees to Order
-                3) Submit Order
-                4) Display Tab
-                """);
-    }
 
 }
