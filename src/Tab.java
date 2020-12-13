@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Tab {
 
     double totalPrice = 0; // the total price of all items in the order list
-    private final ArrayList<MenuItem> fullTab = new ArrayList<MenuItem>();
+    private ArrayList<MenuItem> fullTab = new ArrayList<MenuItem>();
 
 
     private static final Tab singleton = new Tab();
@@ -11,8 +11,7 @@ public class Tab {
 
     // setter for tab array list of integers
     public void createTab(ArrayList<Integer> tab){
-        for(Integer itemNum : tab)
-            fullTab.add(Menu.getInstance().getMenuItemFromItemNum(itemNum));
+        this.fullTab = new ItemNumToItemAdapter().adapt(tab);
     }
 
     public void displayTab(){
